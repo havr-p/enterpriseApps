@@ -1,12 +1,15 @@
-<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-  <mat-icon>more_vert</mat-icon>
-</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
-    <span>Tranzakcie</span>
+<mat-toolbar>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
   </button>
-</mat-menu>
+  <span class="spacer">My App</span>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/transactions">
+      <mat-icon>dialpad</mat-icon>
+      <span>Tranzakcie</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
 
 
 <router-outlet></router-outlet>

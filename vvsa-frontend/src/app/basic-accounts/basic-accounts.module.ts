@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BasicAccountsRoutingModule } from './basic-accounts-routing.module';
 import { BasicAccountsDetailComponent } from './basic-accounts-detail/basic-accounts-detail.component';
-import { BasicAccountsComponent } from './basic-accounts/basic-accounts.component';
+import { BasicAccountListComponent } from './basic-account-list/basic-account-list.component';
 import { BasicDetailComponent } from './basic-detail/basic-detail.component';
 import { WithdrawalDetailComponent } from './withdrawal-detail/withdrawal-detail.component';
 
@@ -11,7 +11,7 @@ import { WithdrawalDetailComponent } from './withdrawal-detail/withdrawal-detail
 @NgModule({
   declarations: [
     BasicAccountsDetailComponent,
-    BasicAccountsComponent,
+    BasicAccountListComponent,
     BasicDetailComponent,
     WithdrawalDetailComponent
   ],
