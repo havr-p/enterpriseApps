@@ -1,1 +1,39 @@
-<p>basic-accounts works!</p>
+<table mat-table [dataSource]="transactions" class="mat-elevation-z8">
+  <ng-container matColumnDef="transactionId">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let transaction">{{transaction.transactionId}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="fullName">
+    <th mat-header-cell *matHeaderCellDef>Full Name</th>
+    <td mat-cell *matCellDef="let transaction">{{transaction.fullName}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="transactionType">
+    <th mat-header-cell *matHeaderCellDef>Type</th>
+    <td mat-cell *matCellDef="let transaction">{{transaction.transactionType}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="accountNumber">
+    <th mat-header-cell *matHeaderCellDef>Account</th>
+    <td mat-cell *matCellDef="let transaction">{{transaction.accountNumber}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="bankCode">
+    <th mat-header-cell *matHeaderCellDef>Bank Code</th>
+    <td mat-cell *matCellDef="let transaction">{{transaction.bankCode}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="issueDate">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let transaction">{{transaction.issueDate | date}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef>Amount</th>
+    <td mat-cell *matCellDef="let transaction">{{transaction.amount | currency}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

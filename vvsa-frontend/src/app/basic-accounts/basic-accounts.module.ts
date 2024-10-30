@@ -6,6 +6,7 @@ import { BasicAccountsDetailComponent } from './basic-accounts-detail/basic-acco
 import { BasicAccountListComponent } from './basic-account-list/basic-account-list.component';
 import { BasicDetailComponent } from './basic-detail/basic-detail.component';
 import { WithdrawalDetailComponent } from './withdrawal-detail/withdrawal-detail.component';
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { WithdrawalDetailComponent } from './withdrawal-detail/withdrawal-detail
   ],
   imports: [
     CommonModule,
-    BasicAccountsRoutingModule
+    BasicAccountsRoutingModule,
+    MatTableModule,
   ]
 })
 export class BasicAccountsModule { }
