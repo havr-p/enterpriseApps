@@ -9,11 +9,13 @@ import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {MatButtonModule, MatIconButton} from "@angular/material/button";
 import {MatMenu, MatMenuItem, MatMenuModule} from "@angular/material/menu";
 import {MatToolbar} from "@angular/material/toolbar";
+import { TransactionTypePipe } from './utils/pipes/transaction-type.pipe';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TransactionTypePipe
   ],
   imports: [
     BrowserModule,
