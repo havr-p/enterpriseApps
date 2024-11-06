@@ -14,8 +14,7 @@ import { TransactionTypePipe } from './utils/pipes/transaction-type.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TransactionTypePipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
