@@ -19,7 +19,8 @@ import { TransactionTypePipe } from './utils/pipes/transaction-type.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatButtonModule, MatMenuModule, MatIconModule, MatToolbar
+    MatButtonModule, MatMenuModule, MatIconModule, MatToolbar,
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()
