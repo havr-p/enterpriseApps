@@ -1,1 +1,44 @@
-<p>basic-accounts-detail works!</p>
+<form [formGroup]="transactionForm" (ngSubmit)="onSubmit()" class="transaction-form">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Transaction Details</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Account Number</mat-label>
+        <input matInput formControlName="accountNumber">
+        <mat-error *ngIf="transactionForm.get('accountNumber')?.hasError('required')">
+          Account number is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Amount</mat-label>
+        <input matInput formControlName="amount">
+        <mat-error *ngIf="transactionForm.get('amount')?.hasError('required')">
+          Amount is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Issue Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="issueDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="transactionForm.get('issueDate')?.hasError('required')">
+          Issue date is required
+        </mat-error>
+      </mat-form-field>
+
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button mat-button type="button" (click)="onReset()">Reset</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!transactionForm.valid">
+        Submit
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

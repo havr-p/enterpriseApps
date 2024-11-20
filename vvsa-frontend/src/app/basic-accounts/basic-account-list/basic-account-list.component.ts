@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ITransaction} from "../../api/model/transaction";
 import {TransactionsService} from "../../api/transactions.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-basic-accounts',
@@ -12,7 +12,7 @@ export class BasicAccountListComponent implements OnInit{
   transactions: ITransaction[] = [];
   displayedColumns: string[] = ['transactionId',
     'fullName', 'transactionType', 'accountNumber', 'bankCode', 'issueDate', 'amount']
-  constructor(private transactionsService: TransactionsService, private router: Router) {
+  constructor(private transactionsService: TransactionsService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -25,6 +25,6 @@ export class BasicAccountListComponent implements OnInit{
 
   onRowClick(row: ITransaction) {
       console.log(row);
-      this.router.navigateByUrl('./detail');
+    this.router.navigate(['detail'], { relativeTo: this.route, state: { transaction: row } });
   }
 }

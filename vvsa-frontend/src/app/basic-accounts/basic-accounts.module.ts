@@ -8,6 +8,13 @@ import { BasicDetailComponent } from './basic-detail/basic-detail.component';
 import { WithdrawalDetailComponent } from './withdrawal-detail/withdrawal-detail.component';
 import {MatTableModule} from "@angular/material/table";
 import {UtilsModule} from "../utils/utils/utils.module";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -21,7 +28,14 @@ import {UtilsModule} from "../utils/utils/utils.module";
     CommonModule,
     BasicAccountsRoutingModule,
     MatTableModule,
-    UtilsModule
+    UtilsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+    MatButtonModule,
+    ReactiveFormsModule,
   ]
 })
 export class BasicAccountsModule { }

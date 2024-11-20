@@ -1,0 +1,11 @@
+.transaction-form {
+  max-width: 800px;
+  margin: 20px auto;
+}
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+mat-card-actions {
+  padding: 16px;
+}
