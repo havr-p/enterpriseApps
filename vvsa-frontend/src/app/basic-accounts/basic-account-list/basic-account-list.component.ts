@@ -23,4 +23,8 @@ export class BasicAccountListComponent implements OnInit{
     })
   }
 
+  onRowClick(row: ITransaction) {
+      console.log(row);
+      this.router.navigateByUrl('./detail');
+  }
 }
