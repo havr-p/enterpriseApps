@@ -1,24 +1,53 @@
-﻿using web.Model;
-using web.Repository;
+﻿using web.Repository;
+using web.DatabaseModel;
 
 namespace web.Service;
 
-public class TransactionService : ITransactionService
-{
-    private readonly ITransactionRepository _repository;
+public class TransactionService : ITransactionService {
+    private readonly ITransactionRepository transactionRepository;
+    public TransactionService(ITransactionRepository transactionRepository) {
+        this.transactionRepository = transactionRepository;
+    }
 
-    public TransactionService(ITransactionRepository repository)
+    public List<TransactionViewModel> GetAllTransactions()
+{
+    var transactionsViewModel = new List<TransactionViewModel>();
+    var transactions = transactionRepository.GetAllTransactions();
+
+    foreach (var transaction in transactions)
     {
-        _repository = repository;
+        var transactionViewModel = new TransactionViewModel
+        {
+            TransactionId = transaction.Id,
+            AccountNumber = transaction.AccountNumber,
+            Amount = transaction.Amount,
+            BankCode = transaction.BankCode,
+            FullName = transaction.User.Name,
+            IssueDate = transaction.IssueDate,
+            TransactionType = transaction.TransactionType.Name
+        };
+
+        transactionsViewModel.Add(transactionViewModel);
     }
-    
-    public List<Transaction> GetAllTransactions()
+
+    return transactionsViewModel;
+}
+
+    public TransactionViewModel GetTransaction(int id)
+{
+    var transaction = transactionRepository.GetTransactionById(id);
+
+    var transactionViewModel = new TransactionViewModel
     {
-        return _repository.GetAllTransactions();
-    }
-    
-    public Transaction GetTransaction(int id)
-    {
-        return _repository.GetTransaction(id);
-    }
+        TransactionId = transaction.Id,
+        AccountNumber = transaction.AccountNumber,
+        Amount = transaction.Amount,
+        BankCode = transaction.BankCode,
+        FullName = transaction.User.Name,
+        IssueDate = transaction.IssueDate,
+        TransactionType = transaction.TransactionType.Name
+    };
+
+    return transactionViewModel;
+}
 }
